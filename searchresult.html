@@ -1,0 +1,979 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#ffdad6",
+              "primary-container": "#003366",
+              "surface-container-high": "#e7e8e9",
+              "surface-container": "#edeeef",
+              secondary: "#735c00",
+              error: "#ba1a1a",
+              "inverse-on-surface": "#f0f1f2",
+              tertiary: "#1e2010",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#333524",
+              "inverse-primary": "#a7c8ff",
+              "surface-tint": "#3a5f94",
+              "on-secondary-container": "#745c00",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container-low": "#f3f4f5",
+              "on-surface": "#191c1d",
+              "secondary-container": "#fed65b",
+              "surface-variant": "#e1e3e4",
+              primary: "#001e40",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#799dd6",
+              "on-secondary-fixed-variant": "#574500",
+              "on-tertiary-container": "#9d9e88",
+              "on-surface-variant": "#43474f",
+              "secondary-fixed": "#ffe088",
+              background: "#f8f9fa",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e1e3e4",
+              outline: "#737780",
+              "primary-fixed-dim": "#a7c8ff",
+              "on-secondary-fixed": "#241a00",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#1b1d0e",
+              "primary-fixed": "#d5e3ff",
+              "on-background": "#191c1d",
+              "outline-variant": "#c3c6d1",
+              "on-primary-fixed-variant": "#1f477b",
+              "surface-dim": "#d9dadb",
+              surface: "#f8f9fa",
+              "secondary-fixed-dim": "#e9c349",
+              "tertiary-fixed-dim": "#c8c8b0",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#e4e4cc",
+              "inverse-surface": "#2e3132",
+              "on-primary-fixed": "#001b3c",
+              "on-tertiary-fixed-variant": "#474836",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            animation: {
+              "fade-in-up":
+                "fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "ken-burns": "kenBurns 20s ease infinite alternate",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              kenBurns: {
+                "0%": { transform: "scale(1) translate(0, 0)" },
+                "100%": { transform: "scale(1.15) translate(-2%, -2%)" },
+              },
+            },
+          },
+        },
+        animation: {
+          "fade-in-up": "fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+          "ken-burns": "kenBurns 20s ease infinite alternate",
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Staggered animation classes */
+      .reveal-1 {
+        animation-delay: 0.1s;
+      }
+      .reveal-2 {
+        animation-delay: 0.3s;
+      }
+      .reveal-3 {
+        animation-delay: 0.5s;
+      }
+
+      .property-card {
+        transition:
+          transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .property-card:hover {
+        box-shadow:
+          0 30px 60px -12px rgba(0, 30, 64, 0.08),
+          0 18px 36px -18px rgba(0, 30, 64, 0.1);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .property-card:hover {
+        transform: translateY(-8px);
+      }
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .scroll-animate.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body selection:bg-secondary-container opacity-0 transition-opacity duration-700"
+  >
+    <!-- Top Navigation Shell -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-950/60 backdrop-blur-xl shadow-sm dark:shadow-none reveal visible"
+    >
+      <div
+        class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto w-full"
+      >
+        <div
+          class="font-['Noto_Serif'] font-bold text-2xl text-[#001e40] dark:text-white"
+        >
+          The Editorial Concierge
+        </div>
+        <div
+          class="hidden md:flex items-center gap-8 font-['Manrope'] font-medium tracking-tight"
+        >
+          <a
+            class="text-[#001e40] dark:text-white border-b-2 border-[#735c00] pb-1"
+            href="#"
+            >Destinations</a
+          >
+          <a
+            class="text-slate-500 dark:text-slate-400 hover:text-[#001e40] dark:hover:text-white transition-colors"
+            href="collections.html"
+            >Curated Collections</a
+          >
+          <a
+            class="text-slate-500 dark:text-slate-400 hover:text-[#001e40] dark:hover:text-white transition-colors"
+            href="journal.html"
+            >Journal</a
+          >
+          <a
+            class="text-slate-500 dark:text-slate-400 hover:text-[#001e40] dark:hover:text-white transition-colors"
+            href="concierge.html"
+            >Concierge</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-full"
+          >
+            <span
+              class="material-symbols-outlined text-[#001e40]"
+              data-icon="favorite"
+              >favorite</span
+            >
+          </button>
+          <button
+            class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-full"
+          >
+            <span
+              class="material-symbols-outlined text-[#001e40]"
+              data-icon="shopping_bag"
+              >shopping_bag</span
+            >
+          </button>
+          <button
+            id="signupBtn"
+            class="ml-2 px-6 py-2 bg-primary text-on-primary rounded-full font-medium transition-transform scale-98 active:opacity-80"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="pt-24 pb-32 px-4 md:px-8 max-w-screen-2xl mx-auto">
+      <!-- Results Header Section -->
+      <header class="mb-12 opacity-0 animate-fade-in-up delay-200 reveal-1">
+        <span
+          class="text-xs font-label uppercase tracking-[0.2em] text-secondary mb-3 block"
+          >Global Discovery</span
+        >
+        <h1
+          class="text-4xl md:text-6xl font-headline font-bold text-primary mb-6"
+        >
+          Venice: The Grand Collection
+        </h1>
+        <div
+          class="flex flex-wrap items-center gap-4 text-sm font-label text-outline"
+        >
+          <div
+            class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full"
+          >
+            <span
+              class="material-symbols-outlined text-xs"
+              data-icon="calendar_today"
+              >calendar_today</span
+            >
+            <span>Oct 14 — Oct 21</span>
+          </div>
+          <div
+            class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full"
+          >
+            <span class="material-symbols-outlined text-xs" data-icon="person"
+              >person</span
+            >
+            <span>2 Guests</span>
+          </div>
+          <div class="text-on-surface font-semibold ml-auto">
+            124 Curated Matches
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Sidebar Filters -->
+        <aside
+          class="w-full lg:w-72 flex-shrink-0 opacity-0 animate-fade-in-up reveal-1"
+        >
+          <div class="sticky top-28 space-y-10">
+            <section>
+              <h3
+                class="text-xs font-label uppercase tracking-widest text-primary mb-6 flex items-center justify-between"
+              >
+                Price Range
+                <span class="material-symbols-outlined text-sm" data-icon="tune"
+                  >tune</span
+                >
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="h-1 bg-surface-container-highest rounded-full relative"
+                >
+                  <div
+                    class="absolute left-1/4 right-1/4 h-full bg-secondary rounded-full"
+                  ></div>
+                  <div
+                    class="absolute left-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-secondary rounded-full"
+                  ></div>
+                  <div
+                    class="absolute right-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-secondary rounded-full"
+                  ></div>
+                </div>
+                <div
+                  class="flex justify-between text-xs font-label text-outline"
+                >
+                  <span>€250</span>
+                  <span>€1,500+</span>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h3
+                class="text-xs font-label uppercase tracking-widest text-primary mb-4"
+              >
+                Refinement Level
+              </h3>
+              <div class="space-y-3">
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input
+                    class="w-5 h-5 rounded-md border-outline-variant text-secondary focus:ring-secondary/20 transition-all"
+                    type="checkbox"
+                  />
+                  <span
+                    class="text-sm font-body text-on-surface group-hover:text-secondary transition-colors"
+                    >Ultra Luxury (5*)</span
+                  >
+                </label>
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input
+                    checked=""
+                    class="w-5 h-5 rounded-md border-outline-variant text-secondary focus:ring-secondary/20 transition-all"
+                    type="checkbox"
+                  />
+                  <span
+                    class="text-sm font-body text-on-surface group-hover:text-secondary transition-colors"
+                    >High-End Boutique</span
+                  >
+                </label>
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input
+                    class="w-5 h-5 rounded-md border-outline-variant text-secondary focus:ring-secondary/20 transition-all"
+                    type="checkbox"
+                  />
+                  <span
+                    class="text-sm font-body text-on-surface group-hover:text-secondary transition-colors"
+                    >Historical Palazzo</span
+                  >
+                </label>
+              </div>
+            </section>
+            <section>
+              <h3
+                class="text-xs font-label uppercase tracking-widest text-primary mb-4"
+              >
+                Signature Amenities
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-3 py-1.5 rounded-lg border border-outline-variant text-xs font-label hover:border-secondary transition-colors"
+                >
+                  Private Canal Entry
+                </button>
+                <button
+                  class="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-xs font-label"
+                >
+                  Rooftop Terrace
+                </button>
+                <button
+                  class="px-3 py-1.5 rounded-lg border border-outline-variant text-xs font-label hover:border-secondary transition-colors"
+                >
+                  Butler Service
+                </button>
+                <button
+                  class="px-3 py-1.5 rounded-lg border border-outline-variant text-xs font-label hover:border-secondary transition-colors"
+                >
+                  Spa &amp; Wellness
+                </button>
+              </div>
+            </section>
+            <div class="pt-6 border-t border-outline-variant/20">
+              <div
+                class="rounded-xl overflow-hidden relative group cursor-pointer"
+              >
+                <img
+                  alt="Luxury map showing hotel locations in Venice"
+                  class="w-full h-40 object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                  data-location="Venice"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6d8TxMVt-NehnihoalWMzl0h-tvbNBeAcHH288xmhft6pBDGuDu-RSkF2UpZ9mMKR0IQEIPy1XQdCbxSVeNAdkBt5g5Gc_Q6rJOWs-kM9w0QktVQC9SXDDsTHBP-H0YDwcRjP0tvT54xjWmotwsgtLms0fN1KVijs92DhGS7v4-ClQuNzP4ZQLVKXxX9UpNKBwQ7vqArhX2AnPm5sxZl1IhAkeRdgFmQ5paHngGWpF7Pf5m99KiGRO3-QQAihaVx29hOjsvdzFhkc"
+                />
+                <div
+                  class="absolute inset-0 bg-primary/20 flex items-center justify-center"
+                >
+                  <button
+                    class="px-4 py-2 bg-white/90 backdrop-blur-sm text-primary text-xs font-label rounded-full shadow-lg transform group-hover:scale-105 transition-transform"
+                  >
+                    View Interactive Map
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <!-- Results List -->
+        <div class="flex-1 space-y-16">
+          <!-- Result Card 1 -->
+          <article
+            class="property-card scroll animate group relative flex flex-col md:flex-row gap-8 items-start reveal reveal-1"
+          >
+            <div
+              class="w-full md:w-[45%] aspect-[4/5] overflow-hidden rounded-xl bg-surface-container relative"
+            >
+              <img
+                class="w-full h-full object-cover animate-ken-burns"
+                data-alt="Classic Venetian palazzo hotel with marble balcony"
+                src="/img/pic7.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"
+              ></div>
+              <button
+                class="absolute top-4 left-4 p-2 bg-white/80 backdrop-blur-md rounded-full shadow-sm hover:bg-white transition-colors z-10"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-xl"
+                  data-icon="favorite"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div class="flex-1 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <span
+                    class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary mb-1 block"
+                    >San Marco District</span
+                  >
+                  <h2
+                    class="text-3xl font-headline font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+                  >
+                    Palazzo dell'Arte
+                  </h2>
+                </div>
+                <div class="flex flex-col items-end">
+                  <div class="flex gap-0.5 text-[#735c00]">
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                  </div>
+                  <span class="text-[10px] font-label text-outline mt-1"
+                    >4.9/5 Excellent</span
+                  >
+                </div>
+              </div>
+              <p
+                class="text-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-xl"
+              >
+                A restored 16th-century masterpiece overlooking the Grand Canal.
+                Experience the height of Venetian baroque elegance with original
+                Frescoes and Murano chandeliers.
+              </p>
+              <div class="flex items-center gap-6 mb-10">
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="waves"
+                    >waves</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Canal View</span
+                  >
+                </div>
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="restaurant"
+                    >restaurant</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Michelin Star</span
+                  >
+                </div>
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="verified_user"
+                    >verified_user</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Concierge Plus</span
+                  >
+                </div>
+              </div>
+              <div
+                class="flex items-end justify-between border-t border-outline-variant/20 pt-8"
+              >
+                <div class="font-headline">
+                  <span class="text-sm font-label text-outline block mb-1"
+                    >Starting from</span
+                  >
+                  <span class="text-3xl font-bold text-primary">€840</span>
+                  <span class="text-sm font-body text-outline">/ night</span>
+                </div>
+                <a
+                  href="booking.html"
+                  class="px-10 py-4 bg-primary text-on-primary rounded-full font-medium shadow-xl shadow-primary/10 hover:shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95"
+                >
+                  Check Availability
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Result Card 2 -->
+          <article
+            class="property-card group relative flex flex-col md:flex-row-reverse gap-8 items-start opacity-0 animate-fade-in-up reveal-2"
+          >
+            <div
+              class="w-full md:w-[45%] aspect-[4/5] overflow-hidden rounded-xl bg-surface-container relative"
+            >
+              <img
+                class="w-full h-full object-cover animate-ken-burns"
+                data-alt="Modern minimalist luxury hotel suite with view"
+                src="/img/pic8.jpg"
+                style="animation-delay: -5s"
+              />
+              <div
+                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"
+              ></div>
+              <button
+                class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-md rounded-full shadow-sm hover:bg-white transition-colors z-10"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-xl"
+                  data-icon="favorite"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div class="flex-1 pt-4 text-right md:text-left">
+              <div
+                class="flex flex-row-reverse md:flex-row justify-between items-start mb-4"
+              >
+                <div>
+                  <span
+                    class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary mb-1 block"
+                    >Giudecca Island</span
+                  >
+                  <h2
+                    class="text-3xl font-headline font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+                  >
+                    The Alchemists' Retreat
+                  </h2>
+                </div>
+                <div class="flex flex-col items-start md:items-end">
+                  <div class="flex gap-0.5 text-[#735c00]">
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 0"
+                      >star</span
+                    >
+                  </div>
+                  <span class="text-[10px] font-label text-outline mt-1"
+                    >4.7/5 Superior</span
+                  >
+                </div>
+              </div>
+              <p
+                class="text-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-xl md:ml-0 ml-auto"
+              >
+                Modernity meets heritage in this secluded sanctuary. Offering
+                the most prestigious rooftop views of the Venetian skyline,
+                tailored for the contemporary traveler.
+              </p>
+              <div
+                class="flex items-center justify-end md:justify-start gap-6 mb-10"
+              >
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="pool"
+                    >pool</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Infinity Pool</span
+                  >
+                </div>
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="local_bar"
+                    >local_bar</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Signature Lounge</span
+                  >
+                </div>
+              </div>
+              <div
+                class="flex items-end justify-between border-t border-outline-variant/20 pt-8"
+              >
+                <div class="font-headline text-left">
+                  <span class="text-sm font-label text-outline block mb-1"
+                    >Starting from</span
+                  >
+                  <span class="text-3xl font-bold text-primary">€590</span>
+                  <span class="text-sm font-body text-outline">/ night</span>
+                </div>
+                <a
+                  href="booking.html"
+                  class="px-10 py-4 bg-secondary-container text-on-secondary-container rounded-full font-medium hover:bg-secondary hover:text-white transition-all hover:-translate-y-1 active:scale-95 shadow-lg shadow-secondary/5"
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Result Card 3 -->
+          <article
+            class="property-card group relative flex flex-col md:flex-row gap-8 items-start opacity-0 animate-fade-in-up reveal-3"
+          >
+            <div
+              class="w-full md:w-[45%] aspect-[4/5] overflow-hidden rounded-xl bg-surface-container relative"
+            >
+              <img
+                class="w-full h-full object-cover animate-ken-burns"
+                data-alt="Small luxury boutique hotel entrance with velvet curtains"
+                src="/img/pic9.jpg"
+                style="animation-delay: -12s"
+              />
+              <div
+                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"
+              ></div>
+            </div>
+            <div class="flex-1 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <span
+                    class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary mb-1 block"
+                    >Dorsoduro</span
+                  >
+                  <h2
+                    class="text-3xl font-headline font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+                  >
+                    Ca' d'Oro Private Residence
+                  </h2>
+                </div>
+                <div class="flex flex-col items-end">
+                  <div class="flex gap-0.5 text-[#735c00]">
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="star"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                  </div>
+                  <span class="text-[10px] font-label text-outline mt-1"
+                    >5.0/5 Rare Gem</span
+                  >
+                </div>
+              </div>
+              <p
+                class="text-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-xl"
+              >
+                An ultra-exclusive private residence with only six bespoke
+                suites. Curated for those who seek absolute privacy and
+                historical intimacy in the heart of Venice.
+              </p>
+              <div class="flex items-center gap-6 mb-10">
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="spa"
+                    >spa</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Private Spa</span
+                  >
+                </div>
+                <div class="flex items-center gap-2 group/icon">
+                  <span
+                    class="material-symbols-outlined text-outline text-lg transition-colors group-hover/icon:text-primary"
+                    data-icon="directions_boat"
+                    >directions_boat</span
+                  >
+                  <span class="text-xs font-label text-outline"
+                    >Private Riva Transfer</span
+                  >
+                </div>
+              </div>
+              <div
+                class="flex items-end justify-between border-t border-outline-variant/20 pt-8"
+              >
+                <div class="font-headline">
+                  <span class="text-sm font-label text-outline block mb-1"
+                    >Starting from</span
+                  >
+                  <span class="text-3xl font-bold text-primary">€1,250</span>
+                  <span class="text-sm font-body text-outline">/ night</span>
+                </div>
+                <a
+                  href="booking.html"
+                  class="px-10 py-4 bg-primary text-on-primary rounded-full font-medium shadow-xl shadow-primary/10 hover:shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95"
+                >
+                  Check Availability
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom Navigation Bar (Mobile) -->
+    <nav
+      class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl md:hidden z-50"
+    >
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent scale-95 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined text-2xl" data-icon="search"
+          >search</span
+        >
+        <span
+          class="text-[10px] font-['Manrope'] uppercase tracking-widest mt-1"
+          >Explore</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-[#735c00] font-bold tap-highlight-transparent scale-95 transition-transform"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined text-2xl"
+          data-icon="favorite_border"
+          >favorite_border</span
+        >
+        <span
+          class="text-[10px] font-['Manrope'] uppercase tracking-widest mt-1"
+          >Saved</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent scale-95 transition-transform"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined text-2xl"
+          data-icon="travel_explore"
+          >travel_explore</span
+        >
+        <span
+          class="text-[10px] font-['Manrope'] uppercase tracking-widest mt-1"
+          >Trips</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent scale-95 transition-transform"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined text-2xl"
+          data-icon="person_outline"
+          >person_outline</span
+        >
+        <span
+          class="text-[10px] font-['Manrope'] uppercase tracking-widest mt-1"
+          >Profile</span
+        >
+      </a>
+    </nav>
+    <!-- Footer -->
+    <footer
+      class="bg-[#f8f9fa] dark:bg-[#191c1d] w-full py-20 px-8 border-t border-surface-container"
+    >
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-1">
+          <span
+            class="font-['Noto_Serif'] text-xl mb-4 block text-primary dark:text-slate-100"
+            >The Editorial Concierge</span
+          >
+          <p
+            class="text-sm font-body text-slate-500 dark:text-slate-400 leading-relaxed"
+          >
+            Elevating travel from a transaction to an art form. Curated by
+            global experts for the discerning explorer.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="text-xs font-label uppercase tracking-[0.2em] text-primary mb-6"
+          >
+            Concierge
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Private Jet Hire</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Exclusive Access</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Bespoke Tours</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-xs font-label uppercase tracking-[0.2em] text-primary mb-6"
+          >
+            Editorial
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >The Journal</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >City Guides</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Art &amp; Culture</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-xs font-label uppercase tracking-[0.2em] text-primary mb-6"
+          >
+            Legal
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-body text-slate-500 hover:text-[#735c00] transition-colors"
+                href="#"
+                >Contact Concierge</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto mt-20 pt-8 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <p
+          class="text-[10px] font-label uppercase tracking-widest text-slate-400"
+        >
+          © 2026 The Editorial Concierge. A member of the Digital Curator Guild.
+        </p>
+        <div class="flex gap-6">
+          <span
+            class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors"
+            data-icon="public"
+            >public</span
+          >
+          <span
+            class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors"
+            data-icon="chat_bubble"
+            >chat_bubble</span
+          >
+          <span
+            class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors"
+            data-icon="alternate_email"
+            >alternate_email</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="signup.js"></script>
+  </body>
+</html>

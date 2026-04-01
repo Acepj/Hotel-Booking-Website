@@ -1,0 +1,517 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Journal | The Editorial Concierge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "primary-fixed": "#d5e3ff",
+              "inverse-primary": "#a7c8ff",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              tertiary: "#1e2010",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary-fixed-variant": "#574500",
+              background: "#f8f9fa",
+              surface: "#f8f9fa",
+              "on-tertiary-fixed-variant": "#474836",
+              "tertiary-container": "#333524",
+              "on-surface": "#191c1d",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "secondary-container": "#fed65b",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#745c00",
+              "on-primary-fixed": "#001b3c",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e1e3e4",
+              "on-primary-container": "#799dd6",
+              "on-primary-fixed-variant": "#1f477b",
+              "outline-variant": "#c3c6d1",
+              "on-secondary-fixed": "#241a00",
+              "primary-fixed-dim": "#a7c8ff",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#3a5f94",
+              "on-tertiary-container": "#9d9e88",
+              "surface-container-low": "#f3f4f5",
+              "primary-container": "#003366",
+              "secondary-fixed": "#ffe088",
+              outline: "#737780",
+              secondary: "#735c00",
+              "surface-container-highest": "#e1e3e4",
+              "on-background": "#191c1d",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e4cc",
+              "on-tertiary-fixed": "#1b1d0e",
+              primary: "#001e40",
+              "on-surface-variant": "#43474f",
+              "tertiary-fixed-dim": "#c8c8b0",
+              error: "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadb",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Noto Serif", serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background min-h-screen">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-950/60 backdrop-blur-xl shadow-sm dark:shadow-none"
+    >
+      <div
+        class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto"
+      >
+        <div
+          class="font-['Noto_Serif'] text-xl font-bold tracking-tighter text-[#001e40] dark:text-[#f8f9fa] uppercase"
+        >
+          The Editorial Concierge
+        </div>
+        <nav class="hidden md:flex items-center space-x-12">
+          <a
+            class="font-['Noto_Serif'] text-lg tracking-tight text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="searchresult.html"
+            >Destinations</a
+          >
+          <a
+            class="font-['Noto_Serif'] text-lg tracking-tight text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="collections.html"
+            >Collections</a
+          >
+          <a
+            class="font-['Noto_Serif'] text-lg tracking-tight text-[#001e40] dark:text-white border-b-2 border-[#735c00]"
+            href="journal.html"
+            >Journal</a
+          >
+          <a
+            class="font-['Noto_Serif'] text-lg tracking-tight text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="concierge.html"
+            >Concierge</a
+          >
+        </nav>
+        <div class="flex items-center gap-4">
+          <button
+            class="scale-95 active:opacity-80 transition-all text-[#001e40]"
+          >
+            <span class="material-symbols-outlined" data-icon="person"
+              >person</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="pt-20 pb-32 max-w-screen-2xl mx-auto">
+      <!-- Cover Story (Hero) -->
+      <section class="relative w-full h-[870px] overflow-hidden group">
+        <div class="absolute inset-0 bg-primary-container">
+          <img
+            alt="Coastal landscape at dusk"
+            class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
+            data-alt="Cinematic aerial view of Mediterranean coastline at twilight"
+            src="/img/pic1.jpg"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"
+          ></div>
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full p-8 md:p-20 flex flex-col items-start text-white"
+        >
+          <span
+            class="font-label text-[10px] uppercase tracking-[0.2rem] mb-4 bg-secondary/90 px-3 py-1 rounded-full"
+            >Cover Story</span
+          >
+          <h1
+            class="font-headline text-4xl md:text-7xl max-w-4xl leading-tight mb-6"
+          >
+            The Silent Shores: Rediscovering the Uncharted Ionian Isles
+          </h1>
+          <p
+            class="font-body text-lg md:text-xl max-w-2xl opacity-90 mb-8 font-light italic"
+          >
+            Beyond the postcards of Zakynthos lies a tethered world of ancient
+            olive groves and sea-salt architecture.
+          </p>
+          <button
+            class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform"
+          >
+            Read the Feature
+          </button>
+        </div>
+      </section>
+      <!-- Editorial Dispatches Grid -->
+      <section class="px-8 md:px-20 py-24">
+        <div class="flex justify-between items-end mb-16">
+          <div>
+            <span
+              class="font-label text-xs uppercase tracking-[0.3rem] text-secondary font-bold block mb-2"
+              >The Archive</span
+            >
+            <h2 class="font-headline text-4xl md:text-5xl text-primary">
+              Editorial Dispatches
+            </h2>
+          </div>
+          <div class="hidden md:flex gap-4">
+            <button
+              class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined">west</span>
+            </button>
+            <button
+              class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined">east</span>
+            </button>
+          </div>
+        </div>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <!-- Large Feature Card -->
+          <div class="md:col-span-8 group cursor-pointer">
+            <div
+              class="aspect-[16/9] overflow-hidden rounded-xl bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Interior of a luxury hotel"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="High-end minimalist hotel interior with soft morning light"
+                src="/img/pic2.jpg"
+              />
+            </div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.15rem] text-secondary font-bold"
+              >Aesthetics</span
+            >
+            <h3
+              class="font-headline text-3xl text-primary mt-2 mb-4 group-hover:underline decoration-1 underline-offset-8"
+            >
+              Minimalism in the Desert: The Rise of Amangiri’s Disciples
+            </h3>
+            <p
+              class="font-body text-on-surface-variant leading-relaxed max-w-2xl"
+            >
+              Exploring how brutalist architecture and stark desert landscapes
+              are redefining the modern luxury retreat.
+            </p>
+          </div>
+          <!-- Vertical Card -->
+          <div class="md:col-span-4 group cursor-pointer">
+            <div
+              class="aspect-[3/4] overflow-hidden rounded-xl bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Traditional tea ceremony"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Close up of traditional Japanese tea ceremony in Kyoto"
+                src="/img/pic3.jpg"
+              />
+            </div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.15rem] text-secondary font-bold"
+              >Slow Travel</span
+            >
+            <h3
+              class="font-headline text-2xl text-primary mt-2 mb-4 group-hover:underline decoration-1 underline-offset-8"
+            >
+              Kyoto’s After-Hours Rituals
+            </h3>
+            <p class="font-body text-on-surface-variant leading-relaxed">
+              When the tourists leave, the ancient capital reveals its true,
+              rhythmic heart.
+            </p>
+          </div>
+          <!-- Small Grid Items -->
+          <div class="md:col-span-4 group cursor-pointer">
+            <div
+              class="aspect-square overflow-hidden rounded-xl bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Mountain peak"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Snow capped mountain peak at sunrise in the Alps"
+                src="/img/pic4.jpg"
+              />
+            </div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.15rem] text-secondary font-bold"
+              >Escapism</span
+            >
+            <h3 class="font-headline text-2xl text-primary mt-2 mb-4">
+              Above the Clouds
+            </h3>
+            <p class="font-body text-on-surface-variant leading-relaxed">
+              The high-altitude lodges of the Swiss Alps where silence is the
+              only amenity.
+            </p>
+          </div>
+          <div class="md:col-span-4 group cursor-pointer">
+            <div
+              class="aspect-square overflow-hidden rounded-xl bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Modern villa"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Luxury Mediterranean villa with infinity pool and clear blue skies"
+                src="/img/pic5.jpg"
+              />
+            </div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.15rem] text-secondary font-bold"
+              >Curated Luxury</span
+            >
+            <h3 class="font-headline text-2xl text-primary mt-2 mb-4">
+              The Blue Horizon
+            </h3>
+            <p class="font-body text-on-surface-variant leading-relaxed">
+              Private villas in the Cyclades that offer more than just a view.
+            </p>
+          </div>
+          <div class="md:col-span-4 group cursor-pointer">
+            <div
+              class="aspect-square overflow-hidden rounded-xl bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Champagne on a table"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Gourmet dining table setting with fine wine and appetizers"
+                src="/img/pic6.jpg"
+              />
+            </div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.15rem] text-secondary font-bold"
+              >Gastronomy</span
+            >
+            <h3 class="font-headline text-2xl text-primary mt-2 mb-4">
+              The Terroir of Taste
+            </h3>
+            <p class="font-body text-on-surface-variant leading-relaxed">
+              A journey through the volcanic vineyards of Sicily’s Mount Etna.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Newsletter Section -->
+      <section
+        class="mx-8 md:mx-20 bg-surface-container-low rounded-3xl p-12 md:p-24 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl -mr-32 -mt-32"
+        ></div>
+        <div class="z-10 flex-1">
+          <h2
+            class="font-headline text-4xl md:text-5xl text-primary mb-6 italic"
+          >
+            The Weekly Dispatch
+          </h2>
+          <p class="font-body text-on-surface-variant text-lg max-w-md">
+            Curated stories, hidden destinations, and editorial wisdom delivered
+            to your inbox every Sunday morning.
+          </p>
+        </div>
+        <div class="z-10 w-full md:w-auto flex flex-col gap-4">
+          <input
+            class="bg-white border-none focus:ring-1 focus:ring-primary/40 rounded-xl px-6 py-4 w-full md:w-80 font-body text-primary placeholder:text-outline"
+            placeholder="Your email address"
+            type="email"
+          />
+          <button
+            class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label font-bold uppercase tracking-widest text-xs hover:bg-primary-container transition-colors"
+          >
+            Subscribe
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full bg-[#f3f4f5]/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-t-[2rem] z-50 shadow-[0_-4px_40px_rgba(25,28,29,0.04)] flex justify-around items-center px-6 pb-8 pt-4"
+    >
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span class="material-symbols-outlined" data-icon="explore"
+          >explore</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Destinations</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span class="material-symbols-outlined" data-icon="auto_awesome_motion"
+          >auto_awesome_motion</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Collections</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#001e40] dark:text-[#735c00] font-bold scale-110 transition-transform duration-500 ease-in-out"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="menu_book"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >menu_book</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Journal</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span class="material-symbols-outlined" data-icon="room_service"
+          >room_service</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Concierge</span
+        >
+      </button>
+    </nav>
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-20 px-8 md:px-20 mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+        <div class="col-span-1 md:col-span-2">
+          <div
+            class="font-headline text-3xl font-bold tracking-tighter uppercase mb-8"
+          >
+            The Editorial Concierge
+          </div>
+          <p class="font-body opacity-60 max-w-sm leading-relaxed">
+            A digital destination for the global traveller seeking more than
+            just a room. We curate experiences that linger in the memory.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="font-label font-bold uppercase tracking-widest text-xs mb-8 text-secondary"
+          >
+            Discover
+          </h4>
+          <ul class="font-body flex flex-col gap-4 opacity-80">
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Private Collections</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Hidden Stays</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Bespoke Tours</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="font-label font-bold uppercase tracking-widest text-xs mb-8 text-secondary"
+          >
+            Connect
+          </h4>
+          <ul class="font-body flex flex-col gap-4 opacity-80">
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Monograph</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-secondary transition-colors" href="#"
+                >Concierge Desk</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <p class="font-label text-[10px] uppercase tracking-widest opacity-40">
+          © 2024 The Editorial Concierge. All Rights Reserved.
+        </p>
+        <div class="flex gap-8">
+          <a
+            class="font-label text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-label text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100"
+            href="#"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

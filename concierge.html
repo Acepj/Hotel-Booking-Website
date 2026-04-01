@@ -1,0 +1,483 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Concierge Services | The Editorial Concierge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "primary-fixed": "#d5e3ff",
+              "inverse-primary": "#a7c8ff",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              tertiary: "#1e2010",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary-fixed-variant": "#574500",
+              background: "#f8f9fa",
+              surface: "#f8f9fa",
+              "on-tertiary-fixed-variant": "#474836",
+              "tertiary-container": "#333524",
+              "on-surface": "#191c1d",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "secondary-container": "#fed65b",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#745c00",
+              "on-primary-fixed": "#001b3c",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e1e3e4",
+              "on-primary-container": "#799dd6",
+              "on-primary-fixed-variant": "#1f477b",
+              "outline-variant": "#c3c6d1",
+              "on-secondary-fixed": "#241a00",
+              "primary-fixed-dim": "#a7c8ff",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#3a5f94",
+              "on-tertiary-container": "#9d9e88",
+              "surface-container-low": "#f3f4f5",
+              "primary-container": "#003366",
+              "secondary-fixed": "#ffe088",
+              outline: "#737780",
+              secondary: "#735c00",
+              "surface-container-highest": "#e1e3e4",
+              "on-background": "#191c1d",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e4cc",
+              "on-tertiary-fixed": "#1b1d0e",
+              primary: "#001e40",
+              "on-surface-variant": "#43474f",
+              "tertiary-fixed-dim": "#c8c8b0",
+              error: "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadb",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .fill-icon {
+        font-variation-settings: "FILL" 1;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body text-on-surface">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-950/60 backdrop-blur-xl shadow-sm dark:shadow-none"
+    >
+      <nav
+        class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto"
+      >
+        <div
+          class="font-['Noto_Serif'] text-xl font-bold tracking-tighter text-[#001e40] dark:text-[#f8f9fa] uppercase"
+        >
+          The Editorial Concierge
+        </div>
+        <div class="hidden md:flex items-center space-x-12">
+          <a
+            class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="searchresult.html"
+            >Destinations</a
+          >
+          <a
+            class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="collections.html"
+            >Collections</a
+          >
+          <a
+            class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium text-[#191c1d]/60 dark:text-slate-400 hover:text-[#735c00] transition-colors duration-300"
+            href="journal.html"
+            >Journal</a
+          >
+          <a
+            class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium text-[#001e40] dark:text-white border-b-2 border-[#735c00]"
+            href="concierge.html"
+            >Concierge</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-[#001e40] dark:text-[#f8f9fa] scale-95 active:opacity-80 transition-all"
+            data-icon="person"
+          >
+            person
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="pt-20 pb-32">
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-[819px] flex items-center bg-primary overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&amp;w=2069&amp;auto=format&amp;fit=crop')] bg-cover bg-center"
+          data-alt="Luxury private jet interior with golden light"
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"
+        ></div>
+        <div class="relative z-10 max-w-screen-xl mx-auto px-8 py-24">
+          <span
+            class="inline-block font-label text-label-md tracking-[0.15rem] text-secondary-fixed mb-6 uppercase"
+            >Beyond Accommodations</span
+          >
+          <h1
+            class="font-headline text-5xl md:text-7xl text-on-primary max-w-3xl leading-[1.1] mb-8"
+          >
+            The World, Curated <br /><span class="italic font-normal"
+              >Specifically for You.</span
+            >
+          </h1>
+          <p
+            class="font-body text-lg text-on-primary-container max-w-xl mb-12 leading-relaxed"
+          >
+            Experience a level of service that transcends the traditional. From
+            private wings to closed-door gallery access, our concierge is your
+            master key to the global elite experience.
+          </p>
+          <div class="flex flex-wrap gap-6">
+            <button
+              class="bg-secondary text-on-secondary px-10 py-5 rounded-full font-label text-label-md tracking-widest uppercase hover:opacity-90 transition-all shadow-xl"
+            >
+              Inquire with Concierge
+            </button>
+            <button
+              class="border border-on-primary/20 text-on-primary px-10 py-5 rounded-full font-label text-label-md tracking-widest uppercase backdrop-blur-md hover:bg-on-primary/10 transition-all"
+            >
+              View Our Portfolio
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Services Bento Grid -->
+      <section class="max-w-screen-xl mx-auto px-8 mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <!-- Private Jet Charters -->
+          <div
+            class="md:col-span-8 bg-surface-container-low rounded-xl overflow-hidden group"
+          >
+            <div class="flex flex-col md:flex-row h-full">
+              <div class="w-full md:w-1/2 p-12 flex flex-col justify-center">
+                <span
+                  class="material-symbols-outlined text-secondary text-4xl mb-6"
+                  data-icon="flight_takeoff"
+                  >flight_takeoff</span
+                >
+                <h3 class="font-headline text-3xl mb-4 text-primary">
+                  Private Jet Charters
+                </h3>
+                <p
+                  class="font-body text-on-surface-variant mb-8 leading-relaxed"
+                >
+                  Skip the terminals. We manage end-to-end logistics for global
+                  flight paths, ensuring your transition between cities is as
+                  seamless as the stay itself.
+                </p>
+                <a
+                  class="font-label text-xs tracking-widest text-secondary font-bold uppercase flex items-center gap-2 group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  Request Flight Specs
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="arrow_forward"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+              <div
+                class="w-full md:w-1/2 min-h-[300px] bg-[url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&amp;w=1974&amp;auto=format&amp;fit=crop')] bg-cover bg-center"
+                data-alt="A sleek white private jet on the runway at sunset"
+              ></div>
+            </div>
+          </div>
+          <!-- Personal Digital Curator -->
+          <div
+            class="md:col-span-4 bg-primary text-on-primary rounded-xl p-12 flex flex-col justify-end relative overflow-hidden"
+          >
+            <div class="absolute top-12 right-12 opacity-20">
+              <span
+                class="material-symbols-outlined text-8xl"
+                data-icon="fingerprint"
+                >fingerprint</span
+              >
+            </div>
+            <div class="relative z-10">
+              <span
+                class="material-symbols-outlined text-secondary-fixed text-4xl mb-6"
+                data-icon="auto_awesome"
+                >auto_awesome</span
+              >
+              <h3 class="font-headline text-3xl mb-4">Digital Curator</h3>
+              <p class="font-body text-on-primary-container mb-8">
+                A 24/7 hyper-personalized AI interface backed by human
+                expertise, learning your preferences for every journey.
+              </p>
+              <button
+                class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-label text-xs tracking-widest uppercase font-bold"
+              >
+                Activate Profile
+              </button>
+            </div>
+          </div>
+          <!-- Exclusive Access -->
+          <div
+            class="md:col-span-5 bg-surface-container-highest rounded-xl p-12 flex flex-col"
+          >
+            <span
+              class="material-symbols-outlined text-secondary text-4xl mb-6"
+              data-icon="confirmation_number"
+              >confirmation_number</span
+            >
+            <h3 class="font-headline text-3xl mb-4 text-primary">
+              Exclusive Access
+            </h3>
+            <p class="font-body text-on-surface-variant mb-12">
+              From sold-out galas to private views of the Uffizi after hours, we
+              secure the impossible for our members.
+            </p>
+            <div class="mt-auto overflow-hidden rounded-lg">
+              <img
+                class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Vibrant luxury evening event with elegant guests"
+                src="/img/pic10.jpg"
+              />
+            </div>
+          </div>
+          <!-- Bespoke Travel Planning -->
+          <div
+            class="md:col-span-7 bg-white shadow-sm rounded-xl p-12 flex flex-col md:flex-row gap-12 border border-outline-variant/10"
+          >
+            <div class="flex-1">
+              <span
+                class="material-symbols-outlined text-secondary text-4xl mb-6"
+                data-icon="edit_note"
+                >edit_note</span
+              >
+              <h3 class="font-headline text-3xl mb-4 text-primary">
+                Bespoke Planning
+              </h3>
+              <p class="font-body text-on-surface-variant mb-6">
+                Our travel designers don't just book rooms; they craft
+                narratives. Every hour of your itinerary is hand-selected to
+                reflect your personal editorial taste.
+              </p>
+              <ul class="space-y-4 mb-8">
+                <li
+                  class="flex items-center gap-3 font-label text-xs text-on-surface-variant uppercase tracking-wider"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Multi-destination logistics
+                </li>
+                <li
+                  class="flex items-center gap-3 font-label text-xs text-on-surface-variant uppercase tracking-wider"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Private Villa Sourcing
+                </li>
+                <li
+                  class="flex items-center gap-3 font-label text-xs text-on-surface-variant uppercase tracking-wider"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Culinary Expedition Mapping
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1 bg-surface-container-low rounded-lg p-6">
+              <div
+                class="aspect-[3/4] bg-[url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&amp;w=2071&amp;auto=format&amp;fit=crop')] bg-cover bg-center rounded-lg"
+                data-alt="A desk with maps and elegant travel planning tools"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Quote -->
+      <section
+        class="mt-32 py-24 bg-primary-container/10 border-y border-outline-variant/10"
+      >
+        <div class="max-w-screen-md mx-auto px-8 text-center">
+          <span
+            class="material-symbols-outlined text-secondary text-6xl mb-8 opacity-40"
+            data-icon="format_quote"
+            >format_quote</span
+          >
+          <p
+            class="font-headline text-3xl text-primary leading-relaxed mb-8 italic"
+          >
+            "Luxury is not about the object, it's about the memory. The
+            Editorial Concierge makes the memory effortless."
+          </p>
+          <div
+            class="font-label text-label-md tracking-widest text-on-surface-variant uppercase"
+          >
+            — The Creative Director
+          </div>
+        </div>
+      </section>
+      <!-- Consultation CTA Section -->
+      <section class="max-w-screen-xl mx-auto px-8 my-32">
+        <div
+          class="bg-primary rounded-[2.5rem] p-12 md:p-24 flex flex-col items-center text-center text-on-primary relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-primary via-primary to-[#003366] opacity-90"
+          ></div>
+          <div class="relative z-10 max-w-2xl">
+            <h2 class="font-headline text-4xl md:text-5xl mb-8 leading-tight">
+              Your Portfolio Awaits a New Entry.
+            </h2>
+            <p
+              class="font-body text-lg text-on-primary-container mb-12 opacity-80"
+            >
+              Connect with a dedicated Travel Designer today to discuss your
+              next chapter in global exploration. No request is too intricate.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+              <button
+                class="bg-secondary text-on-secondary px-12 py-5 rounded-full font-label text-sm tracking-[0.2rem] uppercase font-bold hover:scale-105 transition-transform shadow-2xl"
+              >
+                Request a Consultation
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pb-8 pt-4 bg-[#f3f4f5]/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-t-[2rem] z-50 shadow-[0_-4px_40px_rgba(25,28,29,0.04)]"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span class="material-symbols-outlined text-2xl" data-icon="explore"
+          >explore</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Destinations</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span
+          class="material-symbols-outlined text-2xl"
+          data-icon="auto_awesome_motion"
+          >auto_awesome_motion</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Collections</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 dark:text-slate-500 hover:opacity-80 transition-opacity"
+      >
+        <span class="material-symbols-outlined text-2xl" data-icon="menu_book"
+          >menu_book</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Journal</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#001e40] dark:text-[#735c00] font-bold scale-110 transition-transform duration-500 ease-in-out"
+      >
+        <span
+          class="material-symbols-outlined text-2xl fill-icon"
+          data-icon="room_service"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >room_service</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-medium mt-1"
+          >Concierge</span
+        >
+      </div>
+    </nav>
+    <!-- Floating Action Button: Suppressed for focused Service details page logic -->
+    <!-- Global Footer Decoration -->
+    <footer class="bg-primary py-12 px-8">
+      <div
+        class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-60"
+      >
+        <div class="font-headline text-sm text-on-primary mb-4 md:mb-0">
+          THE EDITORIAL CONCIERGE © 2024
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-label text-[10px] text-on-primary uppercase tracking-widest"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-label text-[10px] text-on-primary uppercase tracking-widest"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="font-label text-[10px] text-on-primary uppercase tracking-widest"
+            href="#"
+            >Membership</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

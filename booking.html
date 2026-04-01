@@ -1,0 +1,613 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "on-secondary-container": "#745c00",
+              primary: "#001e40",
+              "surface-container-low": "#f3f4f5",
+              "on-primary-fixed": "#001b3c",
+              "inverse-primary": "#a7c8ff",
+              "on-primary-fixed-variant": "#1f477b",
+              "tertiary-container": "#333524",
+              error: "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "surface-bright": "#f8f9fa",
+              "surface-dim": "#d9dadb",
+              background: "#f8f9fa",
+              "on-surface-variant": "#43474f",
+              "on-secondary-fixed": "#241a00",
+              tertiary: "#1e2010",
+              "surface-container": "#edeeef",
+              outline: "#737780",
+              "on-tertiary-fixed-variant": "#474836",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#c8c8b0",
+              "on-tertiary-fixed": "#1b1d0e",
+              secondary: "#735c00",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#9d9e88",
+              "surface-tint": "#3a5f94",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#799dd6",
+              "on-primary": "#ffffff",
+              "secondary-container": "#fed65b",
+              "primary-container": "#003366",
+              "on-secondary-fixed-variant": "#574500",
+              "on-surface": "#191c1d",
+              "outline-variant": "#c3c6d1",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#d5e3ff",
+              "tertiary-fixed": "#e4e4cc",
+              "primary-fixed-dim": "#a7c8ff",
+              "inverse-surface": "#2e3132",
+              "inverse-on-surface": "#f0f1f2",
+              surface: "#f8f9fa",
+              "secondary-fixed": "#ffe088",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body text-on-surface">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-950/60 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full"
+    >
+      <div class="text-2xl font-serif italic text-[#001e40] dark:text-white">
+        The Editorial Concierge
+      </div>
+      <nav class="hidden md:flex items-center space-gap-8 gap-8">
+        <a
+          class="font-['Noto_Serif'] tracking-tight text-[#191c1d] dark:text-[#e1e3e4] hover:text-[#735c00] transition-colors duration-300"
+          href="explore.html"
+          >Explore</a
+        >
+        <a
+          class="font-['Noto_Serif'] tracking-tight text-[#735c00] border-b-2 border-[#735c00] transition-colors duration-300"
+          href="#"
+          >Bookings</a
+        >
+        <a
+          class="font-['Noto_Serif'] tracking-tight text-[#191c1d] dark:text-[#e1e3e4] hover:text-[#735c00] transition-colors duration-300"
+          href="saved.html"
+          >Saved</a
+        >
+        <a
+          class="font-['Noto_Serif'] tracking-tight text-[#191c1d] dark:text-[#e1e3e4] hover:text-[#735c00] transition-colors duration-300"
+          href="concierge.html"
+          >Concierge</a
+        >
+      </nav>
+      <div class="flex items-center gap-6">
+        <span
+          class="material-symbols-outlined text-primary cursor-pointer hover:scale-95 duration-200"
+          data-icon="search"
+          >search</span
+        >
+        <span
+          class="material-symbols-outlined text-primary cursor-pointer hover:scale-95 duration-200"
+          data-icon="favorite"
+          >favorite</span
+        >
+        <span
+          class="material-symbols-outlined text-primary cursor-pointer hover:scale-95 duration-200"
+          data-icon="person"
+          >person</span
+        >
+      </div>
+    </header>
+    <main class="pt-20 pb-32">
+      <!-- Hero Gallery Section -->
+      <section class="relative w-full h-[716px] overflow-hidden bg-primary">
+        <div class="flex h-full w-full">
+          <!-- Large Feature Image -->
+          <div class="w-2/3 h-full relative group overflow-hidden">
+            <img
+              alt="Palazzo dell'Arte exterior"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="grand Venetian palazzo facade with ornate stone carvings and arched windows reflected in the calm emerald canal water at twilight"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfZ4SucINOpWEp6DNS2atrpGWfFP3EIov1-4NrjrR_-lQAar8IOlN24eIBvvNQlO97IuA755xHQ6QboObyHMkqMFg_fgP03GZ1vVU5X9S0d1WCOCIe0rWCaNZFEaPv1ZrIAq1j_4qHUfSR6J744I43R85-GsUvMhA9PBmE9pFlb9GzJ3i9Nh5AVbnfme2jC9xS58w4f9QuV8Nl3NfhG7_w0xeLUlhhTNye8veQqsesNyqYx0kkIpuoO9Kdmcq2CC0FaL05z4Ot6QjQ"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"
+            ></div>
+          </div>
+          <!-- Side Grid -->
+          <div class="w-1/3 flex flex-col h-full">
+            <div class="h-1/2 overflow-hidden group">
+              <img
+                alt="Luxury Room"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="sumptuous hotel suite with gold silk wall coverings, a crystal chandelier, and deep blue velvet furnishings in soft morning light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwAeSmEc7TQ18wd6-HTRl0tYKQKpAgyGsXwQjLwk6sXXHgVY127xeKimpYdhl1xNbKgNnaNNkJAi64_3iHDd4WJd2HWdzQVxmyno2n8wFARygkEl-5gG1ps_-AKIsVYpaLkcUy3-ZTItbFVPxoib1hvw34IECxVhu1FZV6V48ifS6HpgzB6XpPFdjkzFFhACJwp6-eTdEa7Y_dQY0nhtkhh2W1eVRph4cT2dWlTIb_qJWVGqbr09CeLN9DDgFqss4az_UbpCVZwBSU"
+              />
+            </div>
+            <div class="h-1/2 overflow-hidden group border-t-2 border-primary">
+              <img
+                alt="Venice View"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="rooftop view of Venetian steeples and terra cotta roofs under a hazy purple and orange sunset sky"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmk4ezI-B7BJOybLQ-un00hsCoKwUDf_L5Iut-r6Tg8_SfyUce4-rW7hGMsFcgRmiggKVW6ZIV5YHvT1gKzBg1INQFp19ygBmpqXLtpUT4CHKbKTvOQpcCSwOPyrGIJca7DCK9beHOCJolNlsq4i0OsJIyP5pBacLJ0owxwy3fk7XzG_4y4_iVRw-XGb7xnrzTSmOI0lPCucLRw5XhFLbNwOWKisAmb3YVqjr1b_5y97n2_7glHvx5ptphA6_RyODgNYTIiiNsbFii"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          class="absolute bottom-8 right-8 bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-white/30 transition-all"
+        >
+          <span class="material-symbols-outlined text-sm" data-icon="grid_view"
+            >grid_view</span
+          >
+          <span class="font-label text-xs uppercase tracking-widest font-bold"
+            >View 24 Photos</span
+          >
+        </button>
+      </section>
+      <!-- Content Layout -->
+      <div
+        class="max-w-7xl mx-auto px-8 mt-16 grid grid-cols-1 lg:grid-cols-12 gap-16"
+      >
+        <!-- Left Column: Property Details -->
+        <div class="lg:col-span-8 space-y-16">
+          <!-- Header Info -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 text-secondary">
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="star"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="star"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="star"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="star"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="star"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="font-label text-xs tracking-[0.1rem] uppercase ml-2 text-on-surface-variant"
+                >Rare Find • Venice</span
+              >
+            </div>
+            <h1
+              class="text-6xl font-headline font-bold text-primary tracking-tight"
+            >
+              Palazzo dell'Arte
+            </h1>
+            <div class="flex items-center gap-2 text-on-surface-variant">
+              <span
+                class="material-symbols-outlined text-base"
+                data-icon="location_on"
+                >location_on</span
+              >
+              <p class="font-body text-lg italic">
+                Sestiere San Polo, 12, 30125 Venezia VE, Italy
+              </p>
+            </div>
+          </div>
+          <!-- Editorial Description -->
+          <div class="space-y-6">
+            <h2 class="text-3xl font-headline italic text-primary">
+              A Symphony of Renaissance Splendor
+            </h2>
+            <div
+              class="prose prose-lg text-on-surface-variant font-body leading-relaxed max-w-none"
+            >
+              <p>
+                Rising from the jade waters of the Grand Canal, Palazzo
+                dell'Arte is more than a hotel—it is a living gallery of
+                Venetian heritage. Originally commissioned by the Doge's
+                favorite architect, every frescoed ceiling and marble pillar
+                tells a story of the 16th-century Mediterranean trade and
+                artistic enlightenment.
+              </p>
+              <p>
+                Recently restored by modern artisans, the Palazzo seamlessly
+                integrates 21st-century technological comfort within its
+                historic bones. Guests are invited to experience a level of
+                service that mirrors the opulence of the surroundings, where
+                every request is anticipated and every detail is curated.
+              </p>
+            </div>
+          </div>
+          <!-- Amenities Grid -->
+          <div class="space-y-8 bg-surface-container-low p-10 rounded-xl">
+            <h3
+              class="text-sm font-label uppercase tracking-[0.2rem] font-bold text-secondary"
+            >
+              Exceptional Amenities
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined" data-icon="concierge"
+                    >concierge</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Private Butler</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined" data-icon="deck"
+                    >deck</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Rooftop Terrace</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined" data-icon="spa"
+                    >spa</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Regal Spa</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined" data-icon="restaurant"
+                    >restaurant</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Michelin Dining</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    data-icon="directions_boat"
+                    >directions_boat</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Private Water Taxi</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined" data-icon="wine_bar"
+                    >wine_bar</span
+                  >
+                </div>
+                <span class="font-body font-semibold">Exclusive Cellar</span>
+              </div>
+            </div>
+          </div>
+          <!-- Map Section -->
+          <div class="space-y-6">
+            <h3
+              class="text-sm font-label uppercase tracking-[0.2rem] font-bold text-secondary"
+            >
+              Location
+            </h3>
+            <div
+              class="w-full h-80 bg-surface-container-high rounded-xl overflow-hidden relative"
+            >
+              <img
+                alt="Map of Venice"
+                class="w-full h-full object-cover grayscale opacity-50"
+                data-alt="abstract stylized map of Venice canals and bridges in muted grey and blue tones"
+                data-location="Venice, Italy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp0DjPMMoX3pAaPyoXqgqG02X1S8DQKvEASZA8hU6YDgSSRK6Pa_neHZU-jnh3ZLppuV0lyj0rzDDcfp6l1_9z_5tO4EQqUc1cxy3lYhunx5QxEe3FmiUx5WJUWXuwpTbG812XZBwv7lkO9jO97vSZ-vu1tQBcPlENMZrIuhJhtfGyN2RLPvXx4u4AxU5DQRKyX2hNhJDlMehsTcUQ7vobhgYMuhmkJ7RpB5dwn1aTZPcqBT77h-EMa0MiRam8FoH98epQnSQGveU-"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative">
+                  <div
+                    class="absolute inset-0 bg-primary animate-ping rounded-full opacity-20"
+                  ></div>
+                  <span
+                    class="material-symbols-outlined text-4xl text-primary relative z-10"
+                    data-icon="location_pin"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >location_pin</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Reviews -->
+          <div class="space-y-10">
+            <div class="flex items-end justify-between">
+              <h3
+                class="text-sm font-label uppercase tracking-[0.2rem] font-bold text-secondary"
+              >
+                Guest Memoirs
+              </h3>
+              <div class="text-right">
+                <span class="text-4xl font-headline font-bold text-primary"
+                  >4.9</span
+                >
+                <span class="text-on-surface-variant font-body"
+                  >/ 5.0 (342 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div
+                class="p-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_40px_rgba(25,28,29,0.04)] space-y-4"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-surface-container-high"
+                  ></div>
+                  <div>
+                    <p class="font-bold">Julian V.</p>
+                    <p class="text-xs text-on-surface-variant">
+                      Stayed in Sept 2023
+                    </p>
+                  </div>
+                </div>
+                <p class="font-body italic text-on-surface-variant">
+                  "An ethereal experience. The morning light hitting the fresco
+                  in our suite was worth the trip alone."
+                </p>
+              </div>
+              <div
+                class="p-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_40px_rgba(25,28,29,0.04)] space-y-4"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-surface-container-high"
+                  ></div>
+                  <div>
+                    <p class="font-bold">Elena R.</p>
+                    <p class="text-xs text-on-surface-variant">
+                      Stayed in Aug 2023
+                    </p>
+                  </div>
+                </div>
+                <p class="font-body italic text-on-surface-variant">
+                  "The concierge service is truly unparalleled. They managed to
+                  secure a private opera viewing for us."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Booking Widget -->
+        <div class="lg:col-span-4 relative">
+          <aside class="sticky top-28 space-y-6">
+            <div
+              class="bg-surface-container-lowest p-8 rounded-3xl shadow-[0_20px_80px_rgba(0,30,64,0.08)]"
+            >
+              <div class="flex justify-between items-baseline mb-8">
+                <div>
+                  <span class="text-3xl font-headline font-bold text-primary"
+                    >€1,240</span
+                  >
+                  <span class="text-on-surface-variant font-body ml-1"
+                    >/ night</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-secondary">
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="star"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >star</span
+                  >
+                  <span class="font-label text-xs font-bold">4.9</span>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="grid grid-cols-2 bg-surface-container-low rounded-xl overflow-hidden"
+                >
+                  <div class="p-4 border-r border-outline-variant/20">
+                    <label
+                      class="block font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1"
+                      >Check In</label
+                    >
+                    <p class="font-body font-semibold">12 Oct 2024</p>
+                  </div>
+                  <div class="p-4">
+                    <label
+                      class="block font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1"
+                      >Check Out</label
+                    >
+                    <p class="font-body font-semibold">15 Oct 2024</p>
+                  </div>
+                </div>
+                <div class="p-4 bg-surface-container-low rounded-xl">
+                  <label
+                    class="block font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1"
+                    >Guests</label
+                  >
+                  <div class="flex justify-between items-center">
+                    <p class="font-body font-semibold">2 Adults, 1 Child</p>
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 space-y-4 flex flex-col items-center" >
+                <a
+                  href="#"
+                  class="px-10 py-4 bg-primary text-on-primary rounded-full font-medium shadow-xl shadow-primary/10 hover:shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95"
+                >
+                  Check Availability
+                </a>
+                </div>
+                <p
+                  class="text-center text-[10px] font-label text-on-surface-variant uppercase tracking-widest"
+                >
+                  No charge until confirmation
+                </p>
+              </div>
+              <hr class="my-8 border-outline-variant/20" />
+              <div class="space-y-3">
+                <div class="flex justify-between text-on-surface-variant">
+                  <span class="font-body">€1,240 x 3 nights</span>
+                  <span class="font-body font-semibold">€3,720</span>
+                </div>
+                <div class="flex justify-between text-on-surface-variant">
+                  <span class="font-body">Service Fee</span>
+                  <span class="font-body font-semibold">€185</span>
+                </div>
+                <div
+                  class="flex justify-between text-primary font-bold text-lg pt-2"
+                >
+                  <span class="font-body">Total</span>
+                  <span class="font-headline">€3,905</span>
+                </div>
+              </div>
+            </div>
+            <!-- Extra Promo -->
+            <div
+              class="bg-secondary-container/20 p-6 rounded-2xl flex items-start gap-4"
+            >
+              <span
+                class="material-symbols-outlined text-secondary"
+                data-icon="auto_awesome"
+                >auto_awesome</span
+              >
+              <div>
+                <p class="font-bold text-on-secondary-container">
+                  Concierge Exclusive
+                </p>
+                <p class="text-sm text-on-secondary-container/80">
+                  Book through us and receive complimentary breakfast and
+                  airport water taxi.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-[#f3f4f5]/80 backdrop-blur-2xl flex justify-around items-center px-6 pb-safe z-50"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d] opacity-60"
+      >
+        <span class="material-symbols-outlined" data-icon="explore"
+          >explore</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-bold"
+          >Explore</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-[#001e40] text-white rounded-full p-3 scale-110 -translate-y-2 transition-all"
+      >
+        <span class="material-symbols-outlined" data-icon="calendar_today"
+          >calendar_today</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-bold"
+          >Bookings</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d] opacity-60"
+      >
+        <span class="material-symbols-outlined" data-icon="bookmark"
+          >bookmark</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-bold"
+          >Saved</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#191c1d] opacity-60"
+      >
+        <span class="material-symbols-outlined" data-icon="room_service"
+          >room_service</span
+        >
+        <span
+          class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] font-bold"
+          >Concierge</span
+        >
+      </div>
+    </nav>
+  </body>
+</html>

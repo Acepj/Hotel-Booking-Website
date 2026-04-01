@@ -1,0 +1,458 @@
+<!doctype html>
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign In | The Editorial Concierge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#1f477b",
+              "on-tertiary-container": "#9d9e88",
+              "on-primary-container": "#799dd6",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#fed65b",
+              "primary-fixed-dim": "#a7c8ff",
+              "on-error": "#ffffff",
+              primary: "#001e40",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#edeeef",
+              secondary: "#735c00",
+              "surface-container-high": "#e7e8e9",
+              "surface-tint": "#3a5f94",
+              background: "#f8f9fa",
+              "secondary-fixed": "#ffe088",
+              "primary-container": "#003366",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#333524",
+              tertiary: "#1e2010",
+              "inverse-primary": "#a7c8ff",
+              "primary-fixed": "#d5e3ff",
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed": "#001b3c",
+              "surface-variant": "#e1e3e4",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c3c6d1",
+              error: "#ba1a1a",
+              "on-surface": "#191c1d",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#474836",
+              "on-secondary-fixed": "#241a00",
+              "on-secondary-fixed-variant": "#574500",
+              "on-surface-variant": "#43474f",
+              "on-secondary-container": "#745c00",
+              "on-tertiary-fixed": "#1b1d0e",
+              "on-background": "#191c1d",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-fixed-dim": "#c8c8b0",
+              "secondary-fixed-dim": "#e9c349",
+              outline: "#737780",
+              "tertiary-fixed": "#e4e4cc",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#e1e3e4",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              surface: "#f8f9fa",
+              "surface-bright": "#f8f9fa",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .editorial-shadow {
+        box-shadow: 0 20px 40px -10px rgba(0, 30, 64, 0.04);
+      }
+      .glass-panel {
+        background: rgba(248, 249, 250, 0.8);
+        backdrop-filter: blur(24px);
+      }
+    </style>
+    <style>
+      @keyframes crossFade {
+        0% {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+        10% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 1;
+        }
+        35% {
+          opacity: 0;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .carousel-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: crossFade 35s infinite ease-in-out;
+      }
+      .carousel-image:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .carousel-image:nth-child(2) {
+        animation-delay: 7s;
+      }
+      .carousel-image:nth-child(3) {
+        animation-delay: 14s;
+      }
+      .carousel-image:nth-child(4) {
+        animation-delay: 21s;
+      }
+      .carousel-image:nth-child(5) {
+        animation-delay: 28s;
+      }
+      /* Page Load Animations */
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-up {
+        animation: fadeUp 0.9s ease forwards;
+      }
+
+      .animate-fade {
+        animation: fadeIn 1.2s ease forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
+      .delay-3 {
+        animation-delay: 0.6s;
+      }
+      .delay-4 {
+        animation-delay: 0.8s;
+      }
+      .delay-5 {
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface font-body text-on-surface selection:bg-secondary-container/30"
+    onload="document.body.classList.add('animate-fade')"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-slate-50/60 dark:bg-slate-950/60 backdrop-blur-xl flex justify-between items-center px-8 py-6 animate-fade"
+    >
+      <div
+        class="text-xl font-serif italic text-blue-950 dark:text-blue-50 animate-fade-up delay-2"
+      >
+        The Editorial Concierge
+      </div>
+      <div class="flex items-center gap-4">
+        <span
+          class="text-blue-800/60 dark:text-blue-200/60 font-label text-xs uppercase tracking-widest"
+          >Need help?</span
+        >
+        <span
+          class="material-symbols-outlined text-blue-900 cursor-pointer"
+          data-icon="help_outline"
+          >help_outline</span
+        >
+      </div>
+    </header>
+    <main class="min-h-screen flex items-center justify-center pt-20">
+      <!-- Split Screen Layout -->
+      <div
+        class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[870px] lg:rounded-xl overflow-hidden bg-surface-container-low editorial-shadow"
+      >
+        <!-- Left Side: Editorial Image Carousel & Quote -->
+        <div
+          class="hidden lg:flex lg:col-span-7 relative flex-col justify-end p-16 overflow-hidden animate-fade-up"
+        >
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent z-10"
+          ></div>
+          <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img
+              alt="Luxury Contemporary Suite"
+              class="carousel-image"
+              src="/img/img1.jpg"
+            />
+            <img
+              alt="Minimalist Zen Interior"
+              class="carousel-image"
+              src="/img/img2.jpg"
+            />
+            <img
+              alt="Opulent European Hall"
+              class="carousel-image"
+              src="/img/img3.jpg"
+            />
+            <img
+              alt="Modern Coastal Lounge"
+              class="carousel-image"
+              src="/img/img4.jpg"
+            />
+            <img
+              alt="Exclusive Mountain Lodge Interior"
+              class="carousel-image"
+              src="/img/img5.jpg"
+            />
+          </div>
+          <div class="relative z-20 space-y-6">
+            <span
+              class="font-label text-xs uppercase tracking-[0.2em] text-on-primary/70"
+              >The Curated Journey</span
+            >
+            <h1
+              class="font-headline text-5xl lg:text-6xl text-on-primary leading-tight max-w-lg"
+            >
+              Where your story <br /><i class="font-light">takes residence.</i>
+            </h1>
+            <div class="h-px w-24 bg-secondary-container"></div>
+            <p
+              class="text-on-primary/80 font-body text-lg max-w-md leading-relaxed"
+            >
+              Access your personalized portfolio of global sanctuaries and
+              bespoke editorial guides.
+            </p>
+          </div>
+        </div>
+        <!-- Right Side: Sign In Form -->
+        <div
+          class="lg:col-span-5 flex flex-col justify-center items-center bg-surface-container-lowest p-8 md:p-12 lg:p-20 relative animate-fade-up delay-1"
+        >
+          <div class="w-full max-w-md space-y-10">
+            <div class="space-y-3 animate-fade-up delay-2">
+              <span
+                class="font-label text-xs uppercase tracking-[0.15em] text-secondary"
+                >Member Access</span
+              >
+              <h2 class="font-headline text-4xl text-on-surface">Sign In</h2>
+              <p class="text-on-surface-variant text-sm">
+                Welcome back to the world's most refined collections.
+              </p>
+            </div>
+            <form id="loginForm" class="space-y-6">
+              <!-- Email Field -->
+              <div class="space-y-2 animate-fade-up delay-3">
+                <label
+                  class="font-label text-xs uppercase tracking-widest text-on-surface-variant block ml-1"
+                  for="email"
+                  >Email Address</label
+                >
+                <input
+                  class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 text-on-surface focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-on-surface-variant/40"
+                  id="email"
+                  placeholder="curator@editorial.com"
+                  type="email"
+                />
+              </div>
+              <!-- Password Field -->
+              <div class="space-y-2 animate-fade-up delay-4">
+                <div class="flex justify-between items-center px-1">
+                  <label
+                    class="font-label text-xs uppercase tracking-widest text-on-surface-variant block"
+                    for="password"
+                    >Password</label
+                  >
+                  <a
+                    class="text-[10px] uppercase tracking-widest text-secondary font-bold hover:opacity-70 transition-opacity"
+                    href="#"
+                    >Forgot Password?</a
+                  >
+                </div>
+                <input
+                  class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 text-on-surface focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-on-surface-variant/40"
+                  id="password"
+                  placeholder="••••••••"
+                  type="password"
+                />
+              </div>
+              <!-- Submit Button -->
+              <button
+                class="w-full bg-primary text-on-primary font-label text-sm uppercase tracking-[0.2em] py-5 rounded-full hover:bg-primary-container active:scale-[0.98] transition-all shadow-lg shadow-primary/10 group flex items-center justify-center gap-3 animate-fade-up delay-5"
+                type="submit"
+              >
+                Sign-in
+                <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </button>
+            </form>
+            <!-- Divider -->
+            <div class="relative flex items-center justify-center py-4">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-outline-variant/30"></div>
+              </div>
+              <span
+                class="relative bg-surface-container-lowest px-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+                >Or connect via</span
+              >
+            </div>
+            <!-- Social Login -->
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                class="flex items-center justify-center gap-3 py-3 rounded-xl border border-outline-variant/40 hover:bg-surface-container-low transition-colors group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    fill="#4285F4"
+                  ></path>
+                  <path
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    fill="#34A853"
+                  ></path>
+                  <path
+                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                    fill="#FBBC05"
+                  ></path>
+                  <path
+                    d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                    fill="#EA4335"
+                  ></path>
+                </svg>
+                <span class="font-label text-[10px] uppercase tracking-widest"
+                  >Google</span
+                >
+              </button>
+              <button
+                class="flex items-center justify-center gap-3 py-3 rounded-xl border border-outline-variant/40 hover:bg-surface-container-low transition-colors group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  fill="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M17.05 20.28c-.96.95-2.18 1.78-3.41 1.72-1.18-.06-1.59-.72-2.93-.72-1.35 0-1.83.7-2.93.73-1.25.04-2.38-.83-3.34-1.74-2-1.89-3.05-4.84-2.11-7.14.47-1.15 1.51-1.88 2.62-1.91 1.02-.03 1.79.56 2.41.56.6 0 1.55-.7 2.76-.58 1.04.1 1.9.64 2.45 1.44-2.15 1.29-1.81 4.2.34 5.08-.41 1.03-.99 2.01-1.85 2.56zm-2.84-15.58c.55-.66.92-1.58.82-2.5-.83.03-1.84.55-2.44 1.25-.53.62-.99 1.55-.87 2.43.93.07 1.92-.5 2.49-1.18z"
+                  ></path>
+                </svg>
+                <span class="font-label text-[10px] uppercase tracking-widest"
+                  >Apple</span
+                >
+              </button>
+            </div>
+            <!-- Footnote -->
+            <p
+              class="text-center font-body text-xs text-on-surface-variant pt-4"
+            >
+              Not a member?
+              <a class="text-secondary font-bold hover:underline" href="#"
+                >Apply for Access</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer Section -->
+    <footer
+      class="w-full py-12 border-t border-blue-900/5 dark:border-blue-100/5 bg-slate-50 dark:bg-slate-950 mt-12 animate-fade-up delay-5"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-12 gap-6"
+      >
+        <div
+          class="font-sans text-xs uppercase tracking-widest text-blue-800/50 dark:text-blue-200/50"
+        >
+          © 2026 The Editorial Concierge. All rights reserved.
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-sans text-xs uppercase tracking-widest text-blue-800/50 dark:text-blue-200/50 hover:text-blue-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-sans text-xs uppercase tracking-widest text-blue-800/50 dark:text-blue-200/50 hover:text-blue-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="font-sans text-xs uppercase tracking-widest text-blue-800/50 dark:text-blue-200/50 hover:text-blue-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Contact Support</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- Decorative Corner Accent (Gold) -->
+    <div class="fixed bottom-0 right-0 p-8 pointer-events-none opacity-20">
+      <svg
+        fill="none"
+        height="120"
+        viewbox="0 0 120 120"
+        width="120"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M120 0V120H0" stroke="#735c00" stroke-width="0.5"></path>
+        <path d="M110 10V110H10" stroke="#735c00" stroke-width="0.5"></path>
+        <circle cx="110" cy="110" fill="#735c00" r="4"></circle>
+      </svg>
+    </div>
+
+    <script src="signup.js"></script>
+  </body>
+</html>

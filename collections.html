@@ -1,0 +1,395 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "primary-fixed": "#d5e3ff",
+              "inverse-primary": "#a7c8ff",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              tertiary: "#1e2010",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary-fixed-variant": "#574500",
+              background: "#f8f9fa",
+              surface: "#f8f9fa",
+              "on-tertiary-fixed-variant": "#474836",
+              "tertiary-container": "#333524",
+              "on-surface": "#191c1d",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "secondary-container": "#fed65b",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#745c00",
+              "on-primary-fixed": "#001b3c",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e1e3e4",
+              "on-primary-container": "#799dd6",
+              "on-primary-fixed-variant": "#1f477b",
+              "outline-variant": "#c3c6d1",
+              "on-secondary-fixed": "#241a00",
+              "primary-fixed-dim": "#a7c8ff",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#3a5f94",
+              "on-tertiary-container": "#9d9e88",
+              "surface-container-low": "#f3f4f5",
+              "primary-container": "#003366",
+              "secondary-fixed": "#ffe088",
+              outline: "#737780",
+              secondary: "#735c00",
+              "surface-container-highest": "#e1e3e4",
+              "on-background": "#191c1d",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e4cc",
+              "on-tertiary-fixed": "#1b1d0e",
+              primary: "#001e40",
+              "on-surface-variant": "#43474f",
+              "tertiary-fixed-dim": "#c8c8b0",
+              error: "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadb",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .editorial-shadow {
+        box-shadow: 0 40px 40px rgba(25, 28, 29, 0.04);
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body text-on-surface antialiased">
+    <!-- TopAppBar Navigation -->
+    <header
+      class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl shadow-sm dark:shadow-none"
+    >
+      <nav
+        class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto"
+      >
+        <div
+          class="font-headline text-xl font-bold tracking-tighter text-[#001e40] dark:text-[#f8f9fa] uppercase"
+        >
+          The Editorial Concierge
+        </div>
+        <div class="hidden md:flex items-center space-x-12">
+          <a
+            class="text-[#191c1d]/60 font-label text-sm uppercase tracking-widest hover:text-[#735c00] transition-colors duration-300"
+            href="searchresult.html"
+            >Destinations</a
+          >
+          <a
+            class="text-[#001e40] border-b-2 border-[#735c00] font-label text-sm uppercase tracking-widest transition-colors duration-300"
+            href="collections.html"
+            >Collections</a
+          >
+          <a
+            class="text-[#191c1d]/60 font-label text-sm uppercase tracking-widest hover:text-[#735c00] transition-colors duration-300"
+            href="journal.html"
+            >Journal</a
+          >
+          <a
+            class="text-[#191c1d]/60 font-label text-sm uppercase tracking-widest hover:text-[#735c00] transition-colors duration-300"
+            href="concierge.html"
+            >Concierge</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="scale-95 active:opacity-80 transition-all text-[#001e40]"
+          >
+            <span class="material-symbols-outlined" data-icon="person"
+              >person</span
+            >
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="pt-20 pb-32">
+      <!-- Hero Section -->
+      <section
+        class="relative h-[819px] w-full overflow-hidden flex items-center px-8 md:px-20"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Luxury Hotel Exterior"
+            class="w-full h-full object-cover"
+            data-alt="Modern architectural hotel overlooking a serene landscape"
+            src="/img/img6.jpg"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent"
+          ></div>
+        </div>
+        <div class="relative z-10 max-w-3xl">
+          <span
+            class="font-label text-white/80 uppercase tracking-[0.3rem] text-xs mb-4 block"
+            >Volume IV • Curated Selections</span
+          >
+          <h1
+            class="font-headline text-5xl md:text-7xl text-white font-bold leading-tight mb-8"
+          >
+            The Art of <br />
+            <span class="italic font-normal">Intentional</span> Travel
+          </h1>
+          <p class="font-body text-lg text-white/90 max-w-xl leading-relaxed">
+            Moving beyond the generic. We present a collection of sanctuaries
+            where architecture, service, and soul converge to create the
+            extraordinary.
+          </p>
+        </div>
+      </section>
+      <!-- Collection: Alpine Sanctuaries (Asymmetric Layout) -->
+      <section class="mt-32 px-8 md:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 relative">
+            <img
+              alt="Alpine Retreat"
+              class="w-full aspect-[4/5] object-cover rounded-lg"
+              data-alt="Luxury mountain cabin with snow-capped peaks in the background"
+              src="/img/img7.jpg"
+            />
+          </div>
+          <div class="md:col-span-5 md:-ml-24 z-10">
+            <div
+              class="bg-surface-container-lowest p-10 md:p-16 editorial-shadow rounded-lg"
+            >
+              <span
+                class="font-label text-secondary uppercase tracking-widest text-xs mb-4 block"
+                >Collection 01</span
+              >
+              <h2 class="font-headline text-4xl text-primary font-bold mb-6">
+                Alpine Sanctuaries
+              </h2>
+              <p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                High-altitude retreats where the air is thinner and the luxury
+                is deeper. Discover minimalist chalets in the Swiss Alps and
+                brutalist masterpieces in the Dolomites.
+              </p>
+              <a class="inline-flex items-center group" href="#">
+                <span
+                  class="font-label uppercase tracking-widest text-sm font-bold text-primary border-b-2 border-secondary pb-1 group-hover:border-primary transition-colors"
+                  >Explore Collection</span
+                >
+                <span
+                  class="material-symbols-outlined ml-2 text-secondary group-hover:translate-x-1 transition-transform"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Collection: Urban Residencies (Bento Style) -->
+      <section class="mt-40 bg-surface-container-low py-24 px-8 md:px-20">
+        <div class="max-w-screen-2xl mx-auto">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-16"
+          >
+            <div class="max-w-xl">
+              <span
+                class="font-label text-secondary uppercase tracking-widest text-xs mb-4 block"
+                >Collection 02</span
+              >
+              <h2 class="font-headline text-4xl text-primary font-bold">
+                Urban Residencies
+              </h2>
+            </div>
+            <p class="font-body text-on-surface-variant max-w-md mt-6 md:mt-0">
+              Metropolitan havens designed for the modern nomad. Sophistication
+              in the heart of the world's most vibrant capitals.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div
+              class="md:col-span-2 relative group overflow-hidden rounded-xl h-[500px]"
+            >
+              <img
+                alt="Urban Loft"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Chic modern hotel suite with city skyline views"
+                src="/img/img8.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
+              >
+                <h3 class="text-white font-headline text-2xl">
+                  The Tokyo Edition
+                </h3>
+                <p class="text-white/80 font-body text-sm mt-2">Ginza, Japan</p>
+              </div>
+            </div>
+            <div
+              class="md:col-span-1 relative group overflow-hidden rounded-xl h-[500px]"
+            >
+              <img
+                alt="London Hotel"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Boutique hotel entrance in a historic London street"
+                src="/img/img9.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
+              >
+                <h3 class="text-white font-headline text-2xl">NoMad London</h3>
+                <p class="text-white/80 font-body text-sm mt-2">
+                  Covent Garden, UK
+                </p>
+              </div>
+            </div>
+            <div class="md:col-span-1 flex flex-col gap-6">
+              <div
+                class="flex-1 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-center items-center text-center"
+              >
+                <span
+                  class="material-symbols-outlined text-4xl text-secondary mb-4"
+                  data-icon="auto_awesome"
+                  >auto_awesome</span
+                >
+                <h4 class="font-headline text-xl text-primary mb-2">
+                  Curated for You
+                </h4>
+                <p class="font-body text-sm text-on-surface-variant mb-6">
+                  Personalized selections based on your travel history.
+                </p>
+                <button
+                  class="bg-primary text-on-primary px-6 py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors"
+                >
+                  Start Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Collection: Coastal Serenities (Overlapping Layout) -->
+      <section class="mt-40 px-8 md:px-20 mb-20">
+        <div class="relative flex flex-col items-center">
+          <div class="w-full max-w-5xl">
+            <img
+              alt="Coastal Resort"
+              class="w-full h-[600px] object-cover rounded-lg"
+              data-alt="Luxury infinity pool overlooking the Mediterranean sea at sunset"
+              src="/img/img10.jpg"
+            />
+          </div>
+          <div
+            class="md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:translate-x-12 w-full max-w-lg mt-12 md:mt-0"
+          >
+            <div
+              class="bg-surface-container-lowest p-10 md:p-14 shadow-2xl rounded-lg border border-outline-variant/20"
+            >
+              <span
+                class="font-label text-secondary uppercase tracking-widest text-xs mb-4 block"
+                >Collection 03</span
+              >
+              <h2 class="font-headline text-4xl text-primary font-bold mb-6">
+                Coastal Serenities
+              </h2>
+              <p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                From the azure coves of the Amalfi Coast to the rugged cliffs of
+                Big Sur. These properties offer a rhythmic connection to the
+                sea, where luxury is measured in tides.
+              </p>
+              <a
+                class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label text-xs uppercase tracking-widest hover:opacity-90 transition-all inline-block"
+                href="#"
+                >Explore Collection</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Bottom Navigation for Mobile -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full bg-[#f3f4f5]/80 backdrop-blur-2xl z-50 flex justify-around items-center px-6 pb-8 pt-4 shadow-[0_-4px_40px_rgba(25,28,29,0.04)] rounded-t-[2rem]"
+    >
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 font-medium"
+      >
+        <span class="material-symbols-outlined mb-1" data-icon="explore"
+          >explore</span
+        >
+        <span class="font-label text-[10px] uppercase tracking-[0.1rem]"
+          >Destinations</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#001e40] font-bold"
+      >
+        <span
+          class="material-symbols-outlined mb-1 scale-110"
+          data-icon="auto_awesome_motion"
+          >auto_awesome_motion</span
+        >
+        <span class="font-label text-[10px] uppercase tracking-[0.1rem]"
+          >Collections</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 font-medium"
+      >
+        <span class="material-symbols-outlined mb-1" data-icon="menu_book"
+          >menu_book</span
+        >
+        <span class="font-label text-[10px] uppercase tracking-[0.1rem]"
+          >Journal</span
+        >
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-[#191c1d]/40 font-medium"
+      >
+        <span class="material-symbols-outlined mb-1" data-icon="room_service"
+          >room_service</span
+        >
+        <span class="font-label text-[10px] uppercase tracking-[0.1rem]"
+          >Concierge</span
+        >
+      </button>
+    </nav>
+    <!-- Contextual FAB (Hidden on this page as per rules, but prepared for main dash) -->
+    <!-- Suppression logic applied: No FAB on Curated Collections/Browse focused screens -->
+  </body>
+</html>
